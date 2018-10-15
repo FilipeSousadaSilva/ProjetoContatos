@@ -15,30 +15,7 @@
     </form>
 </div>
 
-
-
-
-@section scripts{
-    <script type="text/javascript">
-    $(function()
-    {
-            $.getJSON('/api/contact', function(contactsJsonPayload)
-            {
-                $(contactsJsonPayload).each(function(i, item)
-                {
-                    $('#contacts').append('<li>' + item.Name + '</li>');
-                });
-            });
-    });
-    
-    $('#saveContact').click(function () {
-        $.post("/api/contact",
-              $("#saveContactForm").serialize(),
-              function (value) {
-                  $('#contacts').append('<li>' + value.Name + '</li>');
-              },
-              "json"
-        );
-    });
-    </script>
+@section scripts
+{
+    @Scripts.Render("~/Scripts/ScriptViews/contact.js")
 }
