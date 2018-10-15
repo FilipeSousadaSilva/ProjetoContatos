@@ -18,3 +18,14 @@ $('#saveContact').click(function () {
           "json"
     );
 });
+
+$("#saveContactForm").validate({
+    rules: {
+        contactId: "required",
+        contactName: "required",
+    },
+    messages: {
+        contactId: "Campo obrigatório",
+        contactName: "Campo obrigatório",
+    }
+});

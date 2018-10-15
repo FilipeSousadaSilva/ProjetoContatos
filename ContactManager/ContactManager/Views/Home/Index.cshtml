@@ -2,17 +2,18 @@
     <ul id="contacts"></ul>
     
     <form id="saveContactForm" method="post">
-        <h3>Criando um novo contato</h3>
+        <h3>Cadastrando um novo contato</h3>
         <p>
             <label for="contactId">Id:</label>
-            <input type="text" name="Id" />
+            <input type="text" id="Id" name="Id" required/>
         </p>
         <p>
             <label for="contactName">Nome:</label>
-            <input type="text" name="Name" />
+            <input type="text" id="Name" name="Name" required/>
         </p>
-        <input type="button" id="saveContact" value="Save" />
+        <input type="button" id="saveContact" value="Salvar" />
     </form>
+    <span name="MessageForm" id="MessageForm"></span>
 </div>
 
 @section scripts
