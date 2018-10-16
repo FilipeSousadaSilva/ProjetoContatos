@@ -11,8 +11,8 @@
     
 $('#saveContact').click(function ()
 {
-    //var IdValidation = new RegExp('^(\d)+$');
-    var IdValidation = new RegExp('^(?!\s*$).+');
+    var IdValidation = new RegExp(/^(\d)+$/g);
+    //var IdValidation = new RegExp('^(?!\s*$).+');
     var NameValidation = new RegExp('^(?!\s*$).+');
 
     var Id = $('#Id').val();
