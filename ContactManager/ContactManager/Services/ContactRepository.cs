@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using ContactManager.Models;
+
 namespace ContactManager.Services
 {
     public class ContactRepository
@@ -18,20 +18,12 @@ namespace ContactManager.Services
             {
                 if (ctx.Cache[CacheKey] == null)
                 {
-                    var contacts = new Contact[]
-                    {
-                        new Contact
-                        {
-                            Id = 1, Name = "Glenn Block"
-                        },
-                        new Contact
-                        {
-                            Id = 2, Name = "Dan Roth"
-                        }
-                    };
-
+                    ContactContexto contactsContext = new ContactContexto();
+                    var rows = from myRow in contactsContext.Contact select myRow;
+                    Contact[] contacts = rows.ToArray<Contact>();
                     ctx.Cache[CacheKey] = contacts;
                 }
+
             }
         }
 
@@ -44,16 +36,9 @@ namespace ContactManager.Services
                 return (Contact[])ctx.Cache[CacheKey];
             }
 
-            return new Contact[]
-                {
-                    new Contact
-                    {
-                        Id = 0,
-                        Name = "Placeholder"
-                    }
-                };
+            return null;
         }
-
+        
         public bool SaveContact(Contact contact)
         {
             var ctx = HttpContext.Current;
@@ -64,6 +49,9 @@ namespace ContactManager.Services
                 {
                     var currentData = ((Contact[])ctx.Cache[CacheKey]).ToList();
                     currentData.Add(contact);
+                    var contexto = new ContactContexto();
+                    contexto.Contact.Add(contact);
+                    contexto.SaveChanges();
                     ctx.Cache[CacheKey] = currentData.ToArray();
 
                     return true;
@@ -76,6 +64,5 @@ namespace ContactManager.Services
             }
             return false;
         }
-
     }
 }
