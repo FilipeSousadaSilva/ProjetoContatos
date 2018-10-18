@@ -16,9 +16,15 @@ namespace ContactManager
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/Scripts")
+            .IncludeDirectory("~/Scripts", "*.js", true));
+
+            bundles.Add(new ScriptBundle("~/bundles/css")
+            .IncludeDirectory("~/Content", "*.css", true));
+
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/bootstrap*",
+                      "~/Scripts/respond*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

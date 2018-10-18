@@ -10,7 +10,7 @@ namespace ContactManager.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = "Contatos";
 
             return View();
         }

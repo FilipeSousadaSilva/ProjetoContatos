@@ -18,9 +18,9 @@ namespace ContactManager.Controllers
             this.contactRepository = new ContactRepository();
         }
         
-        public Contact[] Get()
+        public HttpResponseMessage Get()
         {
-            return contactRepository.GetAllContacts();
+            return Request.CreateResponse<Contact[]>(System.Net.HttpStatusCode.OK, this.contactRepository.GetAllContacts());
         }
 
         public HttpResponseMessage Post(Contact contact)
@@ -31,8 +31,5 @@ namespace ContactManager.Controllers
 
             return response;
         }
-
-
-
     }
 }
