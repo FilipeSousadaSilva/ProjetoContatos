@@ -18,12 +18,12 @@ namespace ContactManager.Services
             {
                 if (ctx.Cache[CacheKey] == null)
                 {
-                    ContactContexto contactsContext = new ContactContexto();
-                    var rows = from myRow in contactsContext.Contact select myRow;
+                    ContactContexto dc = new ContactContexto();
+                        var rows = from myRow in dc.Contact 
+                                   select myRow;
                     Contact[] contacts = rows.ToArray<Contact>();
                     ctx.Cache[CacheKey] = contacts;
                 }
-
             }
         }
 

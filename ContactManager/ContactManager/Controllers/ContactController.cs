@@ -15,7 +15,7 @@ namespace ContactManager.Controllers
 
         public ContactController()
         {
-            this.contactRepository = new ContactRepository();
+            this.contactRepository = new ContactRepository(); 
         }
         
         public HttpResponseMessage Get()

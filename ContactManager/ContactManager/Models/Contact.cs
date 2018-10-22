@@ -21,7 +21,7 @@ namespace ContactManager.Models
     public class ContactContexto : DbContext
     {
         public Microsoft.EntityFrameworkCore.DbSet<Contact> Contact { get; set; }
-
+        public Microsoft.EntityFrameworkCore.DbSet<User> User { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
